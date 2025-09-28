@@ -38,7 +38,7 @@ export function EmailBrowser() {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
+    <div className="h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
       <Header user={user} />
       
       <div className="flex-1 flex overflow-hidden">
@@ -48,7 +48,7 @@ export function EmailBrowser() {
         />
         
         <div className="flex-1 flex">
-          <div className="w-1/3 border-r border-gray-200 bg-white">
+          <div className="w-1/3 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <EmailList 
               onEmailSelect={setSelectedEmail}
               selectedEmailId={selectedEmail}
@@ -64,7 +64,7 @@ export function EmailBrowser() {
             </div>
             
             {activeView === 'negotiations' && (
-              <div className="w-96 border-l border-gray-200 bg-white">
+              <div className="w-96 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
                 <NegotiationPanel emailId={selectedEmail} />
               </div>
             )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { AIProvider } from "@/components/ai/AIProvider";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 export const metadata: Metadata = {
   title: "AI Email Browser",
@@ -15,12 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased bg-gray-50">
-        <AuthProvider>
-          <AIProvider>
-            {children}
-          </AIProvider>
-        </AuthProvider>
+      <body className="font-sans antialiased">
+        <ThemeProvider>
+          <AuthProvider>
+            <AIProvider>
+              {children}
+            </AIProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
